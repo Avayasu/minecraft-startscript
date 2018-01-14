@@ -48,7 +48,7 @@ function stop {
 function allstart {
         printf "        \n"
         printf "${GR}Startuji server...${NC}\n"
-        for d in ./*/ ; do (cd "$d" && n=${PWD##*/}; screen -AmdS $n java -Xms128M -Xmx"$Xmx"M -jar $jarfile); done
+        for d in ./*/ ; do (cd "$d" && n=${PWD##*/}; screen -AmdS $n java -Xms"$Xmx"M -Xmx"$Xmx"M -jar $jarfile); done
         printf "${GR}Hotovo${NC}\n"
         printf "        \n"
 }
@@ -68,7 +68,7 @@ function onestart {
         done
     printf "    \n"
     printf "${GR}Startuji server...${NC}\n"
-    cd "/$rootdir/$server" && n=${PWD##*/}; screen -AmdS $n java -Xms128M -Xmx"$Xmx"M -jar $jarfile
+    cd "/$rootdir/$server" && n=${PWD##*/}; screen -AmdS $n java -Xms"$Xmx"M -Xmx"$Xmx"M -jar $jarfile
       if ! screen -list | grep -q "$n"; then
         printf "${RED}Server se nepodarilo nastartovat${NC}\n"
         printf "    \n"
